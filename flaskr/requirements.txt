@@ -2,4 +2,10 @@ flask
 pandas
 gunicorn
 ski-learn
-sklearn
+seaborn
+matplotlib
+json
+requests
+numpy
+pickle
+imblearn
