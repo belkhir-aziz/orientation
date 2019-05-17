@@ -1,3 +1,4 @@
+gunicorn
 imbalanced_learn==0.4.3
 numpy==1.15.4
 pandas==0.23.4
