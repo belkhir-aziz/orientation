@@ -12,4 +12,3 @@ Flask_RESTful==0.3.7
 imblearn==0.0
 scikit_learn==0.21.1
 gunicorn
-anaconda
