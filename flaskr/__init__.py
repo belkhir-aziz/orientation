@@ -47,3 +47,5 @@ def create_app(test_config=None):
     from . import predictions
     app.register_blueprint(predictions.pred)
     return app
+if __name__ == '__main__':
+    app.run()
