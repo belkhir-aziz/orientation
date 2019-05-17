@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+    tr{
+      color:black;
+    }
+body
+{
+    font-family: 'Lato', 'sans-serif';
+    }
+  .col-sm-5 col-xs-6 tital{
+  font-size: 40px;
+  }
+.mb-3{
+  color: 	#4169E1;
+  font-size: 40px;
+}
+#aa{
+  width: 950px;
+  length: 800px
+}
+.profile
+{
+    min-height: 355px;
+    display: inline-block;
+    }
+figcaption.ratings
+{
+    margin-top:20px;
+    }
+figcaption.ratings a
+{
+    color:#f1c40f;
+    font-size:11px;
+    }
+figcaption.ratings a:hover
+{
+    color:#f39c12;
+    text-decoration:none;
+    }
+.divider
+{
+    border-top:1px solid rgba(0,0,0,0.1);
+    }
+.emphasis
+{
+    border-top: 4px solid transparent;
+    }
+.emphasis:hover
+{
+    border-top: 4px solid #1abc9c;
+    }
+.emphasis h2
+{
+    margin-bottom:0;
+    }
+span.tags
+{
+    background: #1abc9c;
+    border-radius: 2px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;
+    }
+.dropdown-menu
+{
+    background-color: #34495e;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    width: 250px;
+    margin-left: -125px;
+    left: 50%;
+    }
+.dropdown-menu .divider
+{
+    background:none;
+    }
+.dropdown-menu>li>a
+{
+    color:#f5f5f5;
+    }
+.dropup .dropdown-menu
+{
+    margin-bottom:10px;
+    }
+.dropup .dropdown-menu:before
+{
+    content: "";
+    border-top: 10px solid #34495e;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 10;
+    }
+    .profile-pic {
+    max-width: 250px;
+    max-height: 250px;
+    display: block;
+}
+
+.file-upload {
+    display: none;
+}
+.circle {
+    border-radius: 5000px !important;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    border: 8px solid rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 72px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.p-image {
+  position: absolute;
+  top: 167px;
+  right: 30px;
+  color: #666666;
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.p-image:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.upload-button {
+  font-size: 1.2em;
+}
+
+.upload-button:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  color: #999;
+}
+    </style>
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+
+
+      <li class="nav-item active">
+        <a href="{{ url_for('blog.index') }}" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>News</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('profile.post') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Profile</span></a>
+      </li>
+      <li class="nav-item active">
+        <a href="{{ url_for('pred.a') }}" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>AI Solution</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('auth.logout') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Log Out</span></a>
+      </li>
+
+
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <div class="container">
+        <div class="row my-2">
+            <div class="col-lg-8 order-lg-2" >
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="{{url_for('profile.index')}}" class="nav-link active">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('profile.post')}}" class="nav-link active"  >Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('profile.update')}}" class="nav-link active">Edit</a>
+                    </li>
+                </ul>
+                <div class="tab-content py-4" id="aa">
+                    <div class="tab-pane active" id="profile">
+                        <h5 class="mb-3">User Profile</h5>
+
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <div class="tab-pane" id="messages">
+
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>
+
+                                          {% if g.user['firstname'] %}
+                                         <div class="col-sm-5 col-xs-6 tital " >Firt name:</div><div class="col-sm-7 col-xs-6 ">{{g.user['firstname']}}</div>
+                                              <div class="clearfix"></div>
+                                         <div class="bot-border"></div>
+                                         {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                       {% if g.user['lastname'] %}
+                                       <div class="col-sm-5 col-xs-6 tital " >Last name:</div><div class="col-sm-7"> {{g.user['lastname']}}</div>
+                                         <div class="clearfix"></div>
+                                       <div class="bot-border"></div>
+                                       {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                       {% if g.user['username'] %}
+
+                                       <div class="col-sm-5 col-xs-6 tital " >Username:</div><div class="col-sm-7">{{g.user['username']}}</div>
+
+                                         <div class="clearfix"></div>
+                                       <div class="bot-border"></div>
+
+                                       {% endif %}
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                       {% if g.user['email'] %}
+
+                                       <div class="col-sm-5 col-xs-6 tital " >eMail:</div><div class="col-sm-7">{{g.user['email']}}</div>
+
+                                         <div class="clearfix"></div>
+                                       <div class="bot-border"></div>
+
+                                       {% endif %}
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+      <!-- Row -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src=""../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

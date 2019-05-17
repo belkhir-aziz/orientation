@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+  a:link {
+    font-size: 27px;
+  }
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:active {
+    text-decoration: underline;
+  }
+  .x_panel {
+     width: 100%;
+     padding: 10px 17px;
+     display: inline-block;
+     background: #fff;
+     border: 1px solid #E6E9ED;
+     -webkit-column-break-inside: avoid;
+     -moz-column-break-inside: avoid;
+     column-break-inside: avoid;
+     opacity: 1;
+     transition: all .2s ease;
+ }
+ .x_panel, .x_title {
+     margin-bottom: 10px;
+ }
+ .degrees:after, .x_content, .x_panel {
+     position: relative;
+ }
+ *, :after, :before {
+     box-sizing: border-box;
+ }
+
+  #a1{color:#B22222;}
+  .text-primary {
+    color: #224abe!important;
+   }
+  .text-success{color:#e74a3b ;}
+  .text-info{color:#f6c23e ;}
+  .text-primary2{color:#f6c23e;}
+  .text-success2{color:#1cc88a ;}
+  .text-info2{color:#858796;}
+
+
+  #a {
+    visibility: hidden;
+  }
+  </style>
+
+</head>
+
+<body id="page-top">
+
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a href="{{ url_for('blog.index') }}" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>News</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('profile.post') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Profil</span></a>
+      </li>
+      <li class="nav-item active">
+        <a href="{{ url_for('pred.a') }}" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>AI Solution</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('auth.logout') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Log Out</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+
+
+
+            </li>
+
+
+
+
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+
+<p><b><a href="{{ url_for('pred.update') }}" target="_blank">Prediction model </a></b></p>
+
+
+
+
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-warning text-white shadow">
+                <div class="card-body">
+                  <h3>low satisfaction:    <h3>
+                <h3 style="color:noir" id="low" ></h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-primary text-white shadow">
+                <div class="card-body">
+                  <h3>high satisfaction:    <h3>
+                  <h3 style="color:noir"id="high"></h3>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                    <h3>popular:    <h3>
+                  <h3 style="color:noir"id="fav"></h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-danger text-white shadow">
+                <div class="card-body">
+                  <h3>Unsolicited:       <h3>
+                    <h3 style="color:noir"id="uns"></h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <div class="col-xl-6 col-lg-4">
+             <div class="card shadow mb-4">
+               <!-- Card Header - Dropdown -->
+               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                 <h6 class="m-0 font-weight-bold text-primary">Bar graph</h6>
+                 <div class="dropdown no-arrow">
+                   <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                   </a>
+                   <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                     <div class="dropdown-header">Dropdown Header:</div>
+                     <a class="dropdown-item" href="#">Action</a>
+                     <a class="dropdown-item" href="#">Another action</a>
+                     <div class="dropdown-divider"></div>
+                     <a class="dropdown-item" href="#">Something else here</a>
+                   </div>
+                 </div>
+               </div>
+               <!-- Card Body -->
+               <div class="card-body">
+                 <div>
+                   <canvas id="mChart"></canvas>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+
+
+           <div class="col-xl-6 col-lg-4">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Bar graph</h6>
+                <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div>
+                  <canvas id="radarChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+            <!-- Pie Chart -->
+</div></div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-7 mb-4">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 id="text"class="m-0 font-weight-bold text-primary">Nearest neighbors</h6>
+                </div>
+                <div class="card-body">
+                  <h4  class="small font-weight-bold">Informatique<span class="float-right1">20%</span></h4>
+                  <div class="progress mb-4">
+                    <div id="bar1" class="progress-bar bg-danger" role="progressbar"  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Telecommunication <span class="float-right2">40%</span></h4>
+                  <div class="progress mb-4">
+                    <div id="bar2" class="progress-bar bg-warning" role="progressbar"  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Genie Indus <span class="float-right3">60%</span></h4>
+                  <div class="progress mb-4">
+                    <div id="bar3" class="progress-bar" role="progressbar"  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Genie Mecanique <span class="float-right4">80%</span></h4>
+                  <div class="progress mb-4">
+                    <div id="bar4" class="progress-bar bg-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Genie Electrique <span class="float-right5">Complete!</span></h4>
+                  <div class="progress">
+                    <div  id="bar5"class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></br>
+                  <h4 class="small font-weight-bold">Genie Civil <span class="float-right6">Complete!</span></h4>
+                  <div class="progress">
+                    <div id="bar6" class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div></div>
+              </div>
+              <div class="col-xl-4 col-lg-4">
+                <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Orientation</h6>
+                    <div class="dropdown no-arrow">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                      </a>
+
+                    </div>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                      <canvas id="myPieChart"></canvas>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <!-- Color System -->
+
+
+
+
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../static/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="../static/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="../static/js/demo/chart-area-demo.js"></script>
+ <script>
+ var Arr = JSON.parse('{{ post | tojson }}');
+ var bar1=Arr['Informatique'].length*2;
+
+ var bar2=Arr['Telecommunication'].length*2;
+
+ var bar3=Arr['Indus'].length*2;
+ var bar4=Arr['Mecanique'].length*2;
+
+ var bar5=Arr['Electrique'].length*2;
+
+ var bar6=Arr['Civil'].length*2;
+ $('#bar1').css('width', bar1+"%");
+ $('#bar2').css('width', bar2+"%");
+ $('#bar3').css('width', bar3+"%");
+ $('#bar4').css('width', bar4+"%");
+ $('#bar5').css('width', bar5+"%");
+ $('#bar6').css('width', bar6+"%");
+ $('.float-right1').text(bar1+"%");
+$('.float-right2').text(bar2+"%");
+$('.float-right3').text(bar3+"%");
+$('.float-right4').text(bar4+"%");
+$('.float-right5').text(bar5+"%");
+$('.float-right6').text(bar6+"%");
+    // ma méthode modifiera la propriété "color" et la définira à "red"
+
+
+ </script>
+  <script>
+  //rada
+  var Arr = JSON.parse('{{ post | tojson }}');
+
+   function occurence(tab,elem)   // declaration de la fonction avec un argument
+  {
+
+   var result=0;
+  for (i=0; i<tab.length;i++)  {
+   if (tab[i]===elem) {result+=1;} };
+
+   return result
+
+  }
+
+function satisfaction(elem)   // declaration de la fonction avec un argument
+{
+
+var scores = new Array();
+scores[0]=occurence(Arr['Informatique'],elem)
+scores[1]=occurence(Arr['Telecommunication'],elem)
+scores[2]=occurence(Arr['Indus'],elem)
+scores[3]=occurence(Arr['Electrique'],elem)
+scores[4]=occurence(Arr['Mecanique'],elem)
+scores[5]=occurence(Arr['Civil'],elem)
+return scores;
+}
+
+function pourcentage(elem){
+  var somme=0;
+var pourcent = new Array();
+pourcent=satisfaction(elem)
+
+var somme=0;
+for (var i=0; i<pourcent.length; i++) {
+  somme+=pourcent[i];
+}
+
+for (i=0; i<pourcent.length;i++)  {
+if (pourcent[i]>0) {pourcent[i]=Math.trunc(pourcent[i]*100/somme);}
+else{pourcent[i]=0;}};
+return pourcent;
+}
+
+
+
+  var ctxR = document.getElementById("radarChart").getContext('2d');
+  var myRadarChart = new Chart(ctxR, {
+    type: 'radar',
+    data: {
+
+      labels: ["Informatique", "Télécommunications", "Indus", "Mécanique", "Electrique", "Civil"],
+      datasets: [{
+          label: "Très insatisfait",
+          data: pourcentage("1"),
+          backgroundColor: [
+            'rgb(30.6%,45.1%,87.5%);',
+          ],
+          borderColor: [
+            'rgb(30.6%,45.1%,87.5%);',
+          ],
+          borderWidth: 2
+        },
+        {
+          label: "Plutôt satisfait",
+          data: pourcentage("2"),
+          backgroundColor: [
+            'rgb(96.5%,76.1%,24.3%)',
+          ],
+          borderColor: [
+            'rgb(96.5%,76.1%,24.3%)',
+          ],
+          borderWidth: 2
+        },
+        {
+          label: "Très satisfait",
+          data: pourcentage("3"),
+          backgroundColor: [
+            'rgb(90.6%,29%,23.1%)',
+          ],
+          borderColor: [
+            'rgb(90.6%,29%,23.1%)',
+          ],
+          borderWidth: 2
+        }
+
+      ]
+    },
+    options: {
+      responsive: true
+    }
+  });
+
+</script>
+<script>
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+var Arr = JSON.parse('{{ post | tojson }}');
+
+ function occurence()   // declaration de la fonction avec un argument
+{
+var scores = new Array();
+scores[0]=Arr['Informatique'].length*2;
+
+scores[1]=Arr['Telecommunication'].length*2;
+
+scores[2]=Arr['Indus'].length*2;
+scores[3]=Arr['Mecanique'].length*2;
+
+scores[4]=Arr['Electrique'].length*2;
+
+scores[5]=Arr['Civil'].length*2;
+return scores
+}
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Informatique", "Télécommunication", "Indus","Mécanique","Electrique","Civil"],
+    datasets: [{
+      data: occurence(),
+      backgroundColor: ['#6610f2', '#e74a3b', '#f6c23e','	#6610f2','#1cc88a','#858796'],
+      hoverBackgroundColor: ['#6610f2', '#e74a3b', '#f6c23e','#6610f2','#1cc88a','#858796'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+</script>
+<script>
+var Arr = JSON.parse('{{ post | tojson }}');
+
+ function occurence(tab,elem)   // declaration de la fonction avec un argument
+{
+
+ var result=0;
+for (i=0; i<tab.length;i++)  {
+ if (tab[i]===elem) {result+=1;} };
+
+ return result
+
+}
+
+function satisfaction(elem)   // declaration de la fonction avec un argument
+{
+
+var scores = new Array();
+scores[0]=occurence(Arr['Informatique'],elem)
+scores[1]=occurence(Arr['Telecommunication'],elem)
+scores[2]=occurence(Arr['Indus'],elem)
+scores[3]=occurence(Arr['Electrique'],elem)
+scores[4]=occurence(Arr['Mecanique'],elem)
+scores[5]=occurence(Arr['Civil'],elem)
+return scores;
+}
+
+function pourcentage(elem){
+var somme=0;
+var pourcent = new Array();
+pourcent=satisfaction(elem)
+
+var somme=0;
+for (var i=0; i<pourcent.length; i++) {
+somme+=pourcent[i];
+}
+
+for (i=0; i<pourcent.length;i++)  {
+if (pourcent[i]>0) {pourcent[i]=Math.trunc(pourcent[i]*100/somme);}
+else{pourcent[i]=0;}};
+return pourcent;
+}
+
+
+
+new Chart(document.getElementById("mChart"), {
+    type: 'bar',
+    data: {
+      labels: ['Informatique', 'Telecommuniction', 'Indus', 'Mecanique' ,'Electrique' ,'Civil'],
+      datasets: [
+        {
+          label: "insatisfait",
+          backgroundColor: "#f6c23e",
+          data: pourcentage("1")
+        }, {
+          label: "satisfait",
+          backgroundColor: "#e74a3b",
+          data:  pourcentage("2")
+        },{
+          label: "très satisfait",
+          backgroundColor: "#4e73df",
+          data: pourcentage("3")
+        },
+
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Population growth (millions)'
+      }
+    }
+
+
+});
+
+</script>
+<script>
+
+var Arr = JSON.parse('{{ post | tojson }}');
+
+ function occurence(tab,elem)   // declaration de la fonction avec un argument
+{
+
+ var result=0;
+for (i=0; i<tab.length;i++)  {
+ if (tab[i]===elem) {result+=1;} };
+
+ return result
+
+}
+
+function satisfaction(elem)   // declaration de la fonction avec un argument
+{
+
+var scores = new Array();
+scores[0]=occurence(Arr['Informatique'],elem)
+scores[1]=occurence(Arr['Telecommunication'],elem)
+scores[2]=occurence(Arr['Indus'],elem)
+scores[3]=occurence(Arr['Electrique'],elem)
+scores[4]=occurence(Arr['Mecanique'],elem)
+scores[5]=occurence(Arr['Civil'],elem)
+return scores;
+}
+
+function pourcentage(elem){
+var somme=0;
+var pourcent = new Array();
+pourcent=satisfaction(elem)
+
+var somme=0;
+for (var i=0; i<pourcent.length; i++) {
+somme+=pourcent[i];
+}
+
+for (i=0; i<pourcent.length;i++)  {
+if (pourcent[i]>0) {pourcent[i]=Math.trunc(pourcent[i]*100/somme);}
+else{pourcent[i]=0;}};
+return pourcent;
+}
+
+
+
+var s1 =satisfaction("1");
+var s3 =satisfaction("3");
+
+var noms = new Array('Informatique', 'Telecommunication', 'Indus', 'Mecanique' ,'Electrique' ,'Civil');
+for(var i=0; i<noms.length; i++){
+
+
+
+     if (Arr[noms[i]].length <=2)
+       $('#uns').prepend(noms[i]+"  ");
+
+     else
+     {
+       if(s1[i]>s3[i])
+         $('#low').prepend(noms[i]+"  ");
+       if(s1[i]<s3[i])
+         $('#high').prepend(noms[i]+" ");
+
+        if (Arr[noms[i]].length>=10)
+          $('#fav').prepend(noms[i]+"  ");
+
+
+     }}
+
+
+
+
+</script>
+
+</body>
+
+</html>

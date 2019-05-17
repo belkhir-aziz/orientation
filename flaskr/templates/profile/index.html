@@ -1,0 +1,162 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+<nav>
+  <h1>Flaskr</h1>
+  <ul>
+    <li>
+
+
+    {% if g.user %}
+
+      <li><b><a href="{{ url_for('blog.index') }}">Acceuil</a></b>
+      <li><b><a href="{{ url_for('profile.index') }}">Profil</a></b>
+      <li><b><a href="{{ url_for('auth.logout') }}">Déconnexion</a></b>
+    {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Enregister</a>
+      <li><a href="{{ url_for('auth.login') }}">Connexion</a>
+    {% endif %}
+  </ul>
+
+</nav>
+
+<div class="container">
+	<div class="row">
+		<h2>Create your snippet's HTML, CSS and Javascript in the editor tabs</h2>
+
+
+       <div class="col-md-9 ">
+
+<div class="panel panel-default">
+  <div class="panel-heading" >  <h4 ><a href="#" class="bouton2">Profil de l'utilisateur </a> &nbsp &nbsp<a href="{{ url_for('profile.form') }}" class="bouton2">Ajouter vos informations </a> &nbsp &nbsp<a href="{{ url_for('prediction1.index') }}" class="bouton2">Avoir une meilleure Aide </a></h4></div>
+   <div class="panel-body">
+
+    <div class="box box-info">
+
+            <div class="box-body">
+                     <div class="col-sm-6">
+                     <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+
+                <input id="profile-image-upload" class="hidden" type="file">
+<div style="color:#999;" >click here to change profile image</div>
+                <!--Upload Image Js And Css-->
+
+
+
+
+
+
+
+                     </div>
+
+              <br>
+
+              <!-- /input-group -->
+            </div>
+            <div class="col-sm-6">
+            <h1 style="color:#00b1b1;">{{g.user['username']}}</h1></span>
+
+            </div>
+            <div class="clearfix"></div>
+            <hr style="margin:5px 0 5px 0;">
+
+{% if g.user['profession'] %}
+<div class="col-sm-5 col-xs-6 tital " >Profession:</div><div class="col-sm-7 col-xs-6 ">{{g.user['profession']}}</div>
+     <div class="clearfix"></div>
+<div class="bot-border"></div>
+{% endif %}
+
+
+{% if g.user['institut'] %}
+<div class="col-sm-5 col-xs-6 tital " >Institut Préparatoire:</div><div class="col-sm-7"> {{g.user['institut']}}</div>
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+{% endif %}
+{% if g.user['interets'] %}
+
+<div class="col-sm-5 col-xs-6 tital " >Centre d'intérêt:</div><div class="col-sm-7">{{g.user['interets']}}</div>
+
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+{% endif %}
+{% if g.user['bac'] %}
+
+<div class="col-sm-5 col-xs-6 tital " >baccalauréat:</div><div class="col-sm-7">{{g.user['bac']}}</div>
+
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+{% endif %}
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+
+
+    </div>
+    </div>
+</div>
+    <script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});
+              </script>
+
+
+
+
+
+
+
+
+
+   </div>
+</div>
+
+<style>
+  a.bouton2 {
+padding: 10px 20px;
+background: #46a28d;
+color: #FFFFFF;
+font-weight: bold;
+font-size: 18px;
+-webkit-border-radius: 11px;
+-moz-border-radius: 11px;
+border-radius: 11px;
+border: 1px solid #46a28d;
+}
+a.bouton2:hover {
+background: #570906;
+color: #5EB6DD;
+}
+  input.hidden {
+position: absolute;
+left: -9999px;
+}
+
+
+#profile-image1 {
+cursor: pointer;
+
+width: 100px;
+height: 100px;
+border:2px solid #03b1ce ;}
+.tital{ font-size:16px; font-weight:500;}
+.bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
+.inner-div
+{
+  display: inline-block;
+  padding: 50px;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+</style>
+{% endblock %}
