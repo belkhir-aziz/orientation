@@ -40,13 +40,13 @@ def create_app(test_config=None):
     app.register_blueprint(blog.np)
     from . import profile
     app.register_blueprint(profile.p)
-    #from . import model1
-    #app.register_blueprint(model1.m1)
+    from . import model1
+    app.register_blueprint(model1.m1)
     from . import model2
     app.register_blueprint(model2.m2)
     from . import predictions
     app.register_blueprint(predictions.pred)
     return app
 if __name__ == '__main__':
-    app = create_app()
-    app.run()
+    create_app()
+    app.run(debug=True)
