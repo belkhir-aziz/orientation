@@ -3,7 +3,7 @@ import numpy as np
 from flask import Flask,abort,jsonify,request
 import pandas as pd
 import matplotlib.pyplot as plt
-import pickle
+
 from sklearn.model_selection import train_test_split
 import seaborn as sns
 import pandas as pd
@@ -17,12 +17,7 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 m1 = Blueprint('model1', __name__, url_prefix='/model1')
-with open("sv.pkl",'rb')as file:
-			model1=pickle.load(file)
-with open("rfc.pkl",'rb')as file:
-			model2=pickle.load(file)
-with open("tree.pkl",'rb')as file:
-			model2=pickle.load(file)
+
 
 d1=[0,1,6,7,9,14]
 def distance(x,y,l):
@@ -130,81 +125,3 @@ def make_predict():
 
 
     return jsonify(results=int(rez))
-
-@m1.route('/svm',methods=['POST'])
-def make_predict1():
-    # residence = request.form['residence']
-     # connaissance = request.form['connaissance']
-     # emplacement = request.form['emplacement']
-     # influenceFamille = request.form['influenceFamille']
-
-      #facteur = request.form['facteur']
-
-		data=request.get_json(force=True)
-		d=[[data[i] for i in data]]
-		predict_request=pd.DataFrame(np.array(d).reshape(1,23),columns=['Profession',"Rang au concours national d'entrée aux écoles d'ingénieurs",
-        'Spécialité',
-        "institut préparatoire aux études d'ingénieurs",
-       'Spécialité/Prépa', 'baccalauréat', 'Mention du baccalauréat',
-       'les connaissances à propos de la filière choisie ont été acquises pendant',
-       "L'emplacement de l'école a-t-il influé votre choix ?",
-       "Quel est le degré d'influence de la famille et de l'entourage dans la prise de décision ? (0 si vous avez fait votre choix sans aucune intervention) ",
-       "Avez vous quelqu'un de tes proches dans la même spécialité ?",
-       'Quel est le facteur principal de votre décision ?',
-       'Comment vous voyez-vous dans 5 ans  après avoir votre diplôme?',
-       'Résidence', 'Les conditions matérielles et financières disponibles\t',
-       'sport', 'culture', 'JeuxColl', 'Voyage', 'PcSkills',
-       'TechnologySkills', 'VieAssociative', 'Arts'])
-
-
-		rez=model1.predict(predict_request)
-
-
-		return jsonify(results=int(rez))
-
-
-@m1.route('/rfc',methods=['POST'])
-def make_predict2():
-
-		data=request.get_json(force=True)
-		d=[[data[i] for i in data]]
-		predict_request=pd.DataFrame(np.array(d).reshape(1,23),columns=['Profession','Spécialité',
-       "Rang au concours national d'entrée aux écoles d'ingénieurs",
-        "institut préparatoire aux études d'ingénieurs",
-       'Spécialité/Prépa', 'baccalauréat', 'Mention du baccalauréat',
-       'les connaissances à propos de la filière choisie ont été acquises pendant',
-       "L'emplacement de l'école a-t-il influé votre choix ?",
-       "Quel est le degré d'influence de la famille et de l'entourage dans la prise de décision ? (0 si vous avez fait votre choix sans aucune intervention) ",
-       "Avez vous quelqu'un de tes proches dans la même spécialité ?",
-       'Quel est le facteur principal de votre décision ?',
-       'Comment vous voyez-vous dans 5 ans  après avoir votre diplôme?',
-       'Résidence', 'Les conditions matérielles et financières disponibles\t',
-       'sport', 'culture', 'JeuxColl', 'Voyage', 'PcSkills',
-       'TechnologySkills', 'VieAssociative', 'Arts'])
-		rez=model2.predict(predict_request)
-		output=rez[0]
-
-		return jsonify(results=int(output))
-
-@m1.route('/tree',methods=['POST'])
-def make_predict3():
-
-		data=request.get_json(force=True)
-		d=[[data[i] for i in data]]
-		predict_request=pd.DataFrame(np.array(d).reshape(1,23),columns=['Profession','Spécialité',
-       "Rang au concours national d'entrée aux écoles d'ingénieurs",
-        "institut préparatoire aux études d'ingénieurs",
-       'Spécialité/Prépa', 'baccalauréat', 'Mention du baccalauréat',
-       'les connaissances à propos de la filière choisie ont été acquises pendant',
-       "L'emplacement de l'école a-t-il influé votre choix ?",
-       "Quel est le degré d'influence de la famille et de l'entourage dans la prise de décision ? (0 si vous avez fait votre choix sans aucune intervention) ",
-       "Avez vous quelqu'un de tes proches dans la même spécialité ?",
-       'Quel est le facteur principal de votre décision ?',
-       'Comment vous voyez-vous dans 5 ans  après avoir votre diplôme?',
-       'Résidence', 'Les conditions matérielles et financières disponibles\t',
-       'sport', 'culture', 'JeuxColl', 'Voyage', 'PcSkills',
-       'TechnologySkills', 'VieAssociative', 'Arts'])
-		rez=model2.predict(predict_request)
-		output=rez[0]
-
-		return jsonify(results=int(output))
