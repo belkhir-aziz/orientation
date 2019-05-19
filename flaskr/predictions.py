@@ -11,7 +11,7 @@ pred = Blueprint('pred', __name__, url_prefix='/pred')
 @pred.route('/index1')
 def index1():
 
-    url="http://127.0.0.1:5000/model1/own"
+    url="https://orientation-model.herokuapp.com/model1/own"
     p=g.user['profession']
     data=json.dumps({'Profession':g.user['profession'],
        "Rang au concours national d'entrée aux écoles d'ingénieurs": g.user['rang'],'Spécialité': g.user['specialite'],
@@ -85,7 +85,7 @@ def a():
     if(not g.user['profession']):
         return redirect(url_for('profile.update'))
 
-    url="http://127.0.0.1:5000/model2/suggest"
+    url="https://orientation-model.herokuapp.com/model2/suggest"
     data=json.dumps({'Profession':g.user['profession'],
        "Rang au concours national d'entrée aux écoles d'ingénieurs": g.user['rang'],
      "institut préparatoire aux études d'ingénieurs": g.user['institut'],
