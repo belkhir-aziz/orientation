@@ -68,9 +68,9 @@ def update():
         ' WHERE id = ?',(specialite,proche ,residence,connaissance,emplacement,influenceFamille,facteur,id,)
         )
         db.commit()
-        return redirect(url_for('pred.index1'))
+        return render_template('pred/affiche.html', post=a)
 
-    return redirect(url_for('pred.index1'))
+    return render_template('pred/affiche.html', post=a)
 
 
 
@@ -104,7 +104,7 @@ def a():
     res = requests.post(url,data)
     try:
         a=res.json()
-        
+
 
     except:
         a="error"
