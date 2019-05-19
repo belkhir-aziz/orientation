@@ -10,18 +10,7 @@ from flaskr.auth import login_required
 from flaskr.db import get_db
 p = Blueprint('profile', __name__, url_prefix='/profile')
 
-def update_required(view):
-    @wraps(view)
-    def decorated_function(*args, **kwargs):
-        if g.profession is None :
-            return redirect(url_for('profile.update'))
 
-        return f(*args, **kwargs)
-    return decorated_function
-@p.route('/secret_page')
-@update_required
-def secret_page():
-    pass
 
 @p.route('/index')
 @login_required

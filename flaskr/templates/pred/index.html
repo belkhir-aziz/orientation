@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title> Tableau de bord</title>
 
   <!-- Custom fonts for this template-->
   <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
       <li class="nav-item active">
         <a href="{{ url_for('blog.index') }}" class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>News</span></a>
+          <span>Accueil</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('profile.post') }}">
@@ -112,13 +112,13 @@
       <li class="nav-item active">
         <a href="{{ url_for('pred.a') }}" class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>AI Solution</span></a>
+          <span>IA Solution</span></a>
       </li>
 
       <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('auth.logout') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Log Out</span></a>
+          <span>Se déconnecter</span></a>
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -167,9 +167,9 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+  <p>Vous trouverez sur cette page une idée générale sur toutes les spécialités.</p>
 
-
-<p><b><a href="{{ url_for('pred.update') }}" target="_blank">Prediction model </a></b></p>
+<p><b><a href="{{ url_for('pred.update') }}" target="_blank">Cliquez ici pour savoir si la spécialité vous conviendrait ou pas.</a></b></p>
 
 
 
@@ -178,7 +178,7 @@
             <div class="col-lg-6 mb-4">
               <div class="card bg-warning text-white shadow">
                 <div class="card-body">
-                  <h3>low satisfaction:    <h3>
+                  <h3>Satisfaction faible. <h3>
                 <h3 style="color:noir" id="low" ></h3>
                 </div>
               </div>
@@ -186,7 +186,7 @@
             <div class="col-lg-6 mb-4">
               <div class="card bg-primary text-white shadow">
                 <div class="card-body">
-                  <h3>high satisfaction:    <h3>
+                  <h3>Satisfaction bonne.   <h3>
                   <h3 style="color:noir"id="high"></h3>
                 </div>
               </div>
@@ -197,7 +197,7 @@
             <div class="col-lg-6 mb-4">
               <div class="card bg-success text-white shadow">
                 <div class="card-body">
-                    <h3>popular:    <h3>
+                    <h3>Sûre.  <h3>
                   <h3 style="color:noir"id="fav"></h3>
                 </div>
               </div>
@@ -205,7 +205,7 @@
             <div class="col-lg-6 mb-4">
               <div class="card bg-danger text-white shadow">
                 <div class="card-body">
-                  <h3>Unsolicited:       <h3>
+                  <h3>Non sollicité.   <h3>
                     <h3 style="color:noir"id="uns"></h3>
                 </div>
               </div>
@@ -223,7 +223,7 @@
              <div class="card shadow mb-4">
                <!-- Card Header - Dropdown -->
                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                 <h6 class="m-0 font-weight-bold text-primary">Bar graph</h6>
+                 <h6 class="m-0 font-weight-bold text-primary">Satisfaction des voisins.</h6>
                  <div class="dropdown no-arrow">
                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -252,7 +252,7 @@
             <div class="card shadow mb-4">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Bar graph</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Satisfaction des voisins.</h6>
                 <div class="dropdown no-arrow">
                   <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -290,7 +290,7 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 id="text"class="m-0 font-weight-bold text-primary">Nearest neighbors</h6>
+                  <h6 id="text"class="m-0 font-weight-bold text-primary">Groupement des voisins </h6>
                 </div>
                 <div class="card-body">
                   <h4  class="small font-weight-bold">Informatique<span class="float-right1">20%</span></h4>
@@ -323,7 +323,7 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Orientation</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Groupement des voisins .</h6>
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
