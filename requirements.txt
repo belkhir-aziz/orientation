@@ -14,3 +14,4 @@ app==0.0.1
 imblearn==0.0
 scikit_learn==0.21.1
 xlrd
+flask_sqlalchemy
