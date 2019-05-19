@@ -104,7 +104,7 @@ def a():
     res = requests.post(url,data)
     try:
         a=res.json()
-        print(a)
+        
 
     except:
         a="error"
