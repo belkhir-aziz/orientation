@@ -68,7 +68,7 @@ def update():
         ' WHERE id = ?',(specialite,proche ,residence,connaissance,emplacement,influenceFamille,facteur,id,)
         )
         db.commit()
-        return render_template('pred/affiche.html', post=a)
+        return redirect(url_for('pred.index1'))
 
     return render_template('pred/affiche.html', post=a)
 
