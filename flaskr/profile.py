@@ -75,5 +75,5 @@ def update():
         ' WHERE id = ?',(profession,rang , institut,specialitePrepa,bac,mentionBac,jeuxColl,Sport,Arts,Voyage,VieAssociative,TechnologySkills,PcSkills,culture,vision,conditon,id,)
         )
         db.commit()
-
+        return redirect(url_for('pred.a'))
     return render_template('profile/update.html')
