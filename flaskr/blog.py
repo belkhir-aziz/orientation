@@ -42,9 +42,9 @@ def create():
                 (title, body, g.user['id'])
             )
             db.commit()
-            return render_template('blog/create.html')
+            return redirect(url_for('profile.post'))
 
-    return render_template('blog/create.html')
+    return redirect(url_for('profile.post'))
 def get_post(id, check_author=True):
     post = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
