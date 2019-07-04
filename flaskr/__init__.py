@@ -5,6 +5,8 @@ from flask_bootstrap import Bootstrap
 
 from flask_restful import Api
 
+from flask_admin import Admin
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
