@@ -2,6 +2,11 @@ import os
 from flask_restful import Resource
 from flask import Flask
 from flask_bootstrap import Bootstrap
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+
+
 
 from flask_restful import Api
 
@@ -46,4 +51,7 @@ def create_app(test_config=None):
     app.register_blueprint(model2.m2)
     from . import predictions
     app.register_blueprint(predictions.pred)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+
+    db = SQLAlchemy(app)
     return app
