@@ -43,6 +43,10 @@ def register():
     return render_template('auth/register.html')
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
+    nb= db.execute(
+            'SELECT COUNT(*) FROM user'
+        ).fetchone()
+    print(nb)
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
