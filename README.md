@@ -1,6 +1,6 @@
 # orientation
-This project helps tunisian students on their orientation after preparatory cycle for engineering studies. The application uses a machine learning algorithm which is k nearest neighbor with some updates. 
-This is a link to think https://orientation-model.herokuapp.com/auth/login
+This project helps tunisian students on their orientation after preparatory cycle for engineering studies. The application uses a machine learning algorithm which is k nearest neighbor with some updates. (<-- two spaces)
+This is a link to the application https://orientation-model.herokuapp.com/auth/login
 After authentication, choose IA solution to get this form :
 ![form](https://user-images.githubusercontent.com/54355576/65767999-f31d3180-e12f-11e9-87e4-4cff386d4739.PNG)
 You will get the suggestions for your orientation based on your information
